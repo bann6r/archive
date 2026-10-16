@@ -11,5 +11,5 @@ so my threads account (`@bann6r`, before creating `@bann6r_`) got zucked so i de
 ## only one post??
 bro im just testing its still in alpha there is no status yet ?
 
-## ok then. im leaving
-goodbye.
+## is this vibecoding?
+yes
