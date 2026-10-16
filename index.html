@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>bann6r's post archives</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="loveyall.css">
+</head>
+
+<body>
+  <main id="archive">
+    <!-- Archived posts will be loaded here from posts.xml. -->
+  </main>
+
+  <script>
+    async function loadArchive() {
+      const response = await fetch("posts.xml");
+      const xmlText = await response.text();
+      const xml = new DOMParser().parseFromString(xmlText, "application/xml");
+
+      if (xml.querySelector("parsererror")) {
+        document.querySelector("#archive").textContent =
+          "Could not read posts.xml. Please check its XML formatting.";
+        return;
+      }
+
+      const archive = document.querySelector("#archive");
+      const posts = xml.querySelectorAll("archive > post");
+
+      posts.forEach((post, index) => {
+        if (index > 0) {
+          const divider = document.createElement("hr");
+          divider.className = "post-divider";
+          archive.appendChild(divider);
+        }
+
+        const article = document.createElement("article");
+        article.className = "post";
+
+        const header = document.createElement("header");
+        header.className = "post-header";
+
+        const avatar = document.createElement("img");
+        avatar.className = "avatar";
+        avatar.src = post.querySelector("avatar")?.textContent.trim() || "";
+        avatar.alt = `${post.querySelector("username")?.textContent.trim() || "User"}'s profile picture`;
+
+        const headerContent = document.createElement("div");
+        headerContent.className = "header-content";
+
+        const headerRow = document.createElement("div");
+        headerRow.className = "header-row";
+
+        const username = document.createElement("span");
+        username.className = "username";
+        username.textContent = post.querySelector("username")?.textContent.trim() || "";
+
+        const date = document.createElement("time");
+        date.className = "date";
+        const dateElement = post.querySelector("date");
+        date.textContent = dateElement?.textContent.trim() || "";
+        if (dateElement?.getAttribute("datetime")) {
+          date.dateTime = dateElement.getAttribute("datetime");
+        }
+
+        const platform = document.createElement("span");
+        platform.className = "platform";
+
+        const platformIcon = document.createElement("img");
+        platformIcon.className = "threads-icon";
+
+        const platformName = post.querySelector("platform")?.textContent.trim().toLowerCase();
+        const icons = {
+          threads: "icons/threads.svg"
+        };
+
+        if (icons[platformName]) {
+          platformIcon.src = icons[platformName];
+          platformIcon.alt = `Posted on ${platformName}`;
+          platform.appendChild(platformIcon);
+        }
+
+        headerRow.append(username, date, platform);
+        headerContent.appendChild(headerRow);
+        header.append(avatar, headerContent);
+
+        const content = document.createElement("div");
+        content.className = "post-content";
+
+        const text = document.createElement("p");
+        text.className = "post-text";
+        text.textContent = post.querySelector("text")?.textContent.trim() || "";
+
+        const actions = document.createElement("div");
+        actions.className = "actions";
+        actions.setAttribute("aria-label", "Post actions");
+
+        const actionIcons = [
+          ["Like", "icons/love.svg"],
+          ["Comment", "icons/comment.svg"],
+          ["Repost", "icons/repost.svg"]
+        ];
+
+        actionIcons.forEach(([label, src]) => {
+          const action = document.createElement("span");
+          action.className = "action";
+          action.title = label;
+
+          const icon = document.createElement("img");
+          icon.src = src;
+          icon.alt = "";
+          action.appendChild(icon);
+          actions.appendChild(action);
+        });
+
+        content.append(text, actions);
+        article.append(header, content);
+        archive.appendChild(article);
+      });
+    }
+
+    loadArchive().catch(() => {
+      document.querySelector("#archive").textContent =
+        "Could not load posts.xml. Make sure the page is being served over HTTP.";
+    });
+  </script>
+</body>
+</html>
