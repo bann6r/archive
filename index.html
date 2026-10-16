@@ -14,7 +14,7 @@
 
 <body>
   <main id="archive">
-    <!-- Archived posts will be loaded here from posts.xml. -->
+    <!-- archived posts will be loaded here from posts.xml -->
   </main>
 
   <script>
@@ -126,7 +126,7 @@
 
     loadArchive().catch(() => {
       document.querySelector("#archive").textContent =
-        "Could not load posts.xml. Make sure the page is being served over HTTP.";
+        "";
     });
   </script>
 </body>
