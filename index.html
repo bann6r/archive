@@ -45,6 +45,11 @@
         const header = document.createElement("header");
         header.className = "post-header";
 
+        const icons = {
+        threads: "icons/threads.svg",
+        bluesky: "icons/bsky.svg"
+        };
+
         const avatar = document.createElement("img");
         avatar.className = "avatar";
         avatar.src = post.querySelector("avatar")?.textContent.trim() || "";
@@ -122,6 +127,7 @@
         article.append(header, content);
         archive.appendChild(article);
       });
+
     }
 
     loadArchive().catch(() => {
