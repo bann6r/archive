@@ -76,7 +76,7 @@
 
         const platformName = post.querySelector("platform")?.textContent.trim().toLowerCase();
         const icons = {
-          threads: "icons/threads.svg"
+          threads: "icons/threads.svg",
           bsky: "icons/bsky.svg"
         };
 
@@ -128,7 +128,7 @@
 
     loadArchive().catch(() => {
       document.querySelector("#archive").textContent =
-        "";
+        "ERROR";
     });
   </script>
 </body>
