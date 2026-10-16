@@ -12,4 +12,7 @@ so my threads account (`@bann6r`, before creating `@bann6r_`) got zucked so i de
 bro im just testing its still in alpha there is no status yet ?
 
 ## is this vibecoding?
-yes
+yes. but trust me, the ui aint generic
+
+## focus on speedtyping bro
+im kinda bored on speedtyping so coding it is
