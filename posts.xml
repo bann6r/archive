@@ -41,8 +41,8 @@
         <avatar>pfp/firefox.png</avatar>
         <text>test</text>
         <images>
-            <image>media/844977241_17916801096530864_2454463369190419274_n.jpg</image>
             <image>media/851290872_17916801063530864_6427535773514765939_n.jpg</image>
+            <image>media/844977241_17916801096530864_2454463369190419274_n.jpg</image>
         </images>
     </post>
 </archive>
