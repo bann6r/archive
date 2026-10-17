@@ -121,7 +121,9 @@
 
         if (images.length > 0) {
           const carousel = document.createElement("div");
-          carousel.className = "post-carousel";
+          carousel.className = images.length === 1
+            ? "post-single-image"
+            : "post-carousel";
 
           const track = document.createElement("div");
           track.className = "carousel-track";
