@@ -20,8 +20,16 @@
   <script>
     async function loadArchive() {
       const response = await fetch("posts.xml");
+
+      if (!response.ok) {
+        throw new Error(`Could not load posts.xml: ${response.status}`);
+      }
+
       const xmlText = await response.text();
-      const xml = new DOMParser().parseFromString(xmlText, "application/xml");
+      const xml = new DOMParser().parseFromString(
+        xmlText,
+        "application/xml"
+      );
 
       if (xml.querySelector("parsererror")) {
         document.querySelector("#archive").textContent =
@@ -58,12 +66,15 @@
 
         const username = document.createElement("span");
         username.className = "username";
-        username.textContent = post.querySelector("username")?.textContent.trim() || "";
+        username.textContent =
+          post.querySelector("username")?.textContent.trim() || "";
 
         const date = document.createElement("time");
         date.className = "date";
+
         const dateElement = post.querySelector("date");
         date.textContent = dateElement?.textContent.trim() || "";
+
         if (dateElement?.getAttribute("datetime")) {
           date.dateTime = dateElement.getAttribute("datetime");
         }
@@ -71,16 +82,17 @@
         const platform = document.createElement("span");
         platform.className = "platform";
 
-        const platformIcon = document.createElement("img");
-        platformIcon.className = "threads-icon";
+        const platformName =
+          post.querySelector("platform")?.textContent.trim().toLowerCase();
 
-        const platformName = post.querySelector("platform")?.textContent.trim().toLowerCase();
         const icons = {
           threads: "icons/threads.svg",
           bsky: "icons/bsky.svg"
         };
 
         if (icons[platformName]) {
+          const platformIcon = document.createElement("img");
+          platformIcon.className = "threads-icon";
           platformIcon.src = icons[platformName];
           platformIcon.alt = `Posted on ${platformName}`;
           platform.appendChild(platformIcon);
@@ -95,8 +107,49 @@
 
         const text = document.createElement("p");
         text.className = "post-text";
-        text.textContent = post.querySelector("text")?.textContent.trim() || "";
+        text.textContent =
+          post.querySelector("text")?.textContent.trim() || "";
 
+        content.appendChild(text);
+
+        // IMAGE POSTS
+        const images = post.querySelectorAll("images > image");
+
+        if (images.length > 0) {
+          const imageGallery = document.createElement("div");
+          imageGallery.className = "post-images";
+
+          images.forEach((imageElement) => {
+            const image = document.createElement("img");
+            image.src = imageElement.textContent.trim();
+            image.alt = "Image attached to post";
+            image.loading = "lazy";
+            imageGallery.appendChild(image);
+          });
+
+          content.appendChild(imageGallery);
+        }
+
+        // VIDEO POSTS
+        const videoPath =
+          post.querySelector("video")?.textContent.trim();
+
+        if (videoPath) {
+          const video = document.createElement("video");
+          video.className = "post-video";
+          video.controls = true;
+          video.preload = "metadata";
+          video.playsInline = true;
+
+          const source = document.createElement("source");
+          source.src = videoPath;
+          source.type = "video/mp4";
+
+          video.appendChild(source);
+          content.appendChild(video);
+        }
+
+        // POST ACTIONS
         const actions = document.createElement("div");
         actions.className = "actions";
         actions.setAttribute("aria-label", "Post actions");
@@ -115,20 +168,21 @@
           const icon = document.createElement("img");
           icon.src = src;
           icon.alt = "";
+
           action.appendChild(icon);
           actions.appendChild(action);
         });
 
-        content.append(text, actions);
+        content.appendChild(actions);
         article.append(header, content);
         archive.appendChild(article);
       });
-
     }
 
-    loadArchive().catch(() => {
+    loadArchive().catch((error) => {
+      console.error("Archive loading failed:", error);
       document.querySelector("#archive").textContent =
-        "ERROR";
+        "ERROR: Could not load the archive. Check the browser console.";
     });
   </script>
 </body>
