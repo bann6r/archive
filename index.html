@@ -50,13 +50,16 @@
         const article = document.createElement("article");
         article.className = "post";
 
+        // POST HEADER
         const header = document.createElement("header");
         header.className = "post-header";
 
         const avatar = document.createElement("img");
         avatar.className = "avatar";
-        avatar.src = post.querySelector("avatar")?.textContent.trim() || "";
-        avatar.alt = `${post.querySelector("username")?.textContent.trim() || "User"}'s profile picture`;
+        avatar.src =
+          post.querySelector("avatar")?.textContent.trim() || "";
+        avatar.alt =
+          `${post.querySelector("username")?.textContent.trim() || "User"}'s profile picture`;
 
         const headerContent = document.createElement("div");
         headerContent.className = "header-content";
@@ -102,6 +105,7 @@
         headerContent.appendChild(headerRow);
         header.append(avatar, headerContent);
 
+        // POST CONTENT
         const content = document.createElement("div");
         content.className = "post-content";
 
@@ -112,22 +116,88 @@
 
         content.appendChild(text);
 
-        // IMAGE POSTS
+        // IMAGE POSTS AND CAROUSELS
         const images = post.querySelectorAll("images > image");
 
         if (images.length > 0) {
-          const imageGallery = document.createElement("div");
-          imageGallery.className = "post-images";
+          const carousel = document.createElement("div");
+          carousel.className = "post-carousel";
 
-          images.forEach((imageElement) => {
+          const track = document.createElement("div");
+          track.className = "carousel-track";
+          track.setAttribute("aria-label", "Post images");
+
+          images.forEach((imageElement, imageIndex) => {
+            const slide = document.createElement("div");
+            slide.className = "carousel-slide";
+
             const image = document.createElement("img");
             image.src = imageElement.textContent.trim();
-            image.alt = "Image attached to post";
-            image.loading = "lazy";
-            imageGallery.appendChild(image);
+            image.alt = `Image ${imageIndex + 1} of ${images.length}`;
+            image.loading = imageIndex === 0 ? "eager" : "lazy";
+            image.draggable = false;
+
+            slide.appendChild(image);
+            track.appendChild(slide);
           });
 
-          content.appendChild(imageGallery);
+          carousel.appendChild(track);
+
+          // Only add carousel controls when there are multiple images.
+          if (images.length > 1) {
+            const previous = document.createElement("button");
+            previous.className =
+              "carousel-arrow carousel-previous";
+            previous.type = "button";
+            previous.textContent = "‹";
+            previous.setAttribute("aria-label", "Previous image");
+            previous.hidden = true;
+
+            const next = document.createElement("button");
+            next.className = "carousel-arrow carousel-next";
+            next.type = "button";
+            next.textContent = "›";
+            next.setAttribute("aria-label", "Next image");
+
+            const updateArrows = () => {
+              const maxScroll =
+                track.scrollWidth - track.clientWidth;
+
+              previous.hidden = track.scrollLeft <= 2;
+              next.hidden =
+                maxScroll <= 2 ||
+                track.scrollLeft >= maxScroll - 2;
+            };
+
+            previous.addEventListener("click", () => {
+              track.scrollBy({
+                left: -track.clientWidth,
+                behavior: "smooth"
+              });
+            });
+
+            next.addEventListener("click", () => {
+              track.scrollBy({
+                left: track.clientWidth,
+                behavior: "smooth"
+              });
+            });
+
+            track.addEventListener("scroll", updateArrows);
+            window.addEventListener("resize", updateArrows);
+
+            carousel.append(previous, next);
+
+            // Recheck after the images have loaded and sizes are known.
+            requestAnimationFrame(updateArrows);
+            track.querySelectorAll("img").forEach((image) => {
+              image.addEventListener("load", updateArrows, {
+                once: true
+              });
+            });
+          }
+
+          content.appendChild(carousel);
         }
 
         // VIDEO POSTS
