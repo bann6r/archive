@@ -5,8 +5,8 @@ so my threads account (`@bann6r`, before creating `@bann6r_`) got zucked so i de
 ## what social media does it include?
 - bluesky
 - threads
-- youtube
-- x fka twitter
+- youtube (coming soon)
+- x fka twitter (coming soon)
 
 ## only one post??
 bro im just testing its still in alpha there is no status yet ?
