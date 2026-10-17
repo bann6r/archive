@@ -138,7 +138,7 @@
           track.className = "carousel-track";
           track.setAttribute("aria-label", "Post images");
 
-          images.forEach((imageElement, imageIndex) => {
+          [...images].reverse().forEach((imageElement, imageIndex) => {
             const slide = document.createElement("div");
             slide.className = "carousel-slide";
 
