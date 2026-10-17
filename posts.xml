@@ -106,4 +106,14 @@
         <text>someone sends something
             "nice" "🔥️"</text>
     </post>
+    <post>
+        <username>bann6r_</username>
+        <platform>threads</platform>
+        <date datetime="2026-10-17">17/10/2026</date>
+        <avatar>pfp/firefox.png</avatar>
+        <text />
+        <images>
+            <image>media/what.jpg</image>
+        </images>
+    </post>
 </archive>
