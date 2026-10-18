@@ -5,8 +5,8 @@ so my threads account (`@bann6r`, before creating `@bann6r_`) got zucked so i de
 ## what social media does it include?
 - bluesky
 - threads
-- youtube
-- x fka twitter
+- youtube (coming soon)
+- x fka twitter (coming soon)
 
 ## only one post??
 bro im just testing its still in alpha there is no status yet ?
@@ -14,5 +14,7 @@ bro im just testing its still in alpha there is no status yet ?
 ## is this vibecoding?
 yes. but trust me, the ui aint generic
 
-## focus on speedtyping bro
-im kinda bored on speedtyping so coding it is
+## i dont wanted to involve me in the post you archived
+file an issue.
+
+i will be asking people for permission to involve them into my posts, including mentions (@) of them
