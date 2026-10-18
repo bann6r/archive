@@ -12,23 +12,19 @@ function createPlatformIcon(platformName, className) {
     const platform = document.createElement("span");
     platform.className = className;
 
-    // Capitalize nicely (e.g., "threads" -> "Threads", "bsky" -> "Bluesky")
-    let nicePlatformName = "Platform";
+    // Set custom tooltip text based on the platform
     if (platformName === "threads") {
-        nicePlatformName = "Threads";
+        platform.title = "this is posted via threads.";
     } else if (platformName === "bsky") {
-        nicePlatformName = "Bluesky";
+        platform.title = "threads is notorious for restricting content related to suicide/self-harm for users under 18. the only workaround is to use bsky. since i only shared the bsky link in the threads post, the post will appear as a bsky post.";
     }
-
-    // Set the browser native tooltip text here
-    platform.title = `via ${nicePlatformName}`;
 
     const iconPath = platformIcons[platformName];
 
     if (iconPath) {
         const icon = document.createElement("img");
         icon.src = iconPath;
-        icon.alt = `Posted on ${nicePlatformName}`;
+        icon.alt = `Posted on ${platformName}`;
         platform.appendChild(icon);
     }
 
