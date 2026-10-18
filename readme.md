@@ -24,5 +24,5 @@ this was meant for desktop. i will make it responsive on mobile later
 
 ## redirects
 - current version: threads-new (threads, current)
-- [threads, old](https://github.com/bann6r/archive/tree/threads-old)
+- [threads-old (threads, old)](https://github.com/bann6r/archive/tree/threads-old)
 
