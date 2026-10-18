@@ -221,3 +221,70 @@ body {
     border-radius: 12px;
 }
 
+.quoted-post {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 12px;
+    padding: 12px;
+    border: 1px solid #dedede;
+    border-radius: 14px;
+    background: transparent;
+    overflow-wrap: anywhere;
+}
+
+.quoted-post-header {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    min-width: 0;
+}
+
+.quoted-post-avatar {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #eeeeee;
+}
+
+.quoted-post-author {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    gap: 2px;
+}
+
+.quoted-post-username {
+    font-size: 14px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.quoted-post-date {
+    font-size: 12px;
+    color: #777777;
+}
+
+.quoted-post-platform {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.quoted-post-content {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+    .quoted-post {
+        padding: 10px;
+        border-radius: 12px;
+    }
+}
