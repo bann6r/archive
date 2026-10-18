@@ -21,3 +21,7 @@ i will be asking people for permission to involve them into my posts, including 
  
 ## WHY IS THE UI ON MY PHONE GLITCHING???
 this was meant for desktop. i will make it responsive on mobile later
+
+## redirects
+- current version: threads-new (threads, current)
+- threads, old: https://github.com/bann6r/archive/tree/threads-old
