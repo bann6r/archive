@@ -176,8 +176,12 @@ def get_media_urls(post):
     urls = []
     media_type = post.get("media_type", "")
 
-    if media_type in ("IMAGE", "VIDEO") and post.get("media_url"):
+    if media_type == "IMAGE" and post.get("media_url"):
         urls.append(post["media_url"])
+
+    elif media_type == "VIDEO" and post.get("thumbnail_url"):
+        urls.append(post["thumbnail_url"])
+
     elif media_type == "CAROUSEL_ALBUM":
         children = post.get("children", {}).get("data", [])
         for child in children:
@@ -193,16 +197,15 @@ def get_media_urls(post):
                 print(f"Warning: couldn't retrieve carousel item: {exc}")
                 continue
 
-            media_url = details.get("media_url") or details.get("thumbnail_url")
+            if details.get("media_type") == "IMAGE":
+                media_url = details.get("media_url")
+            else:
+                media_url = details.get("thumbnail_url")
+
             if media_url:
                 urls.append(media_url)
 
-    # A video thumbnail is more useful for a still-image archive than the video.
-    elif media_type == "VIDEO" and post.get("thumbnail_url"):
-        urls.append(post["thumbnail_url"])
-
     return urls
-
 
 def make_xml_post(api_post, fingerprints):
     post_id = str(api_post.get("id", "")).strip()
