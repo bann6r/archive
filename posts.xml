@@ -289,12 +289,19 @@
             <image>media/posts/202610/18000279996011430.jpg</image>
         </images>
     </post>
-    <post>
-        <username>bann6r_</username>
-        <platform>threads</platform>
+     <post>
+        <username>bann6r.github.io</username>
+        <platform>bsky</platform>
         <date datetime="2026-10-18">18/10/2026</date>
-        <avatar>pfp/firefox.png</avatar>
-        <text>https://bsky.app/profile/bann6r.github.io/post/3my4ca6yngk2l</text>
+        <avatar>pfp/bsky_threads_2.png</avatar>
+        <text>i would consider buying that but that would make my parents shocked</text>
+        <quote>
+            <username>plomble_iv</username>
+            <platform>threads</platform>
+            <date datetime="2026-10-18">18/10/2026</date>
+            <avatar>pfp/placeholder.png</avatar>
+            <text>how would i get thigh highs without my parents noticing</text>
+        </quote>
     </post>
     <post>
         <username>bann6r_</username>
