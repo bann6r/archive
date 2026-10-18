@@ -12,12 +12,23 @@ function createPlatformIcon(platformName, className) {
     const platform = document.createElement("span");
     platform.className = className;
 
+    // Capitalize nicely (e.g., "threads" -> "Threads", "bsky" -> "Bluesky")
+    let nicePlatformName = "Platform";
+    if (platformName === "threads") {
+        nicePlatformName = "Threads";
+    } else if (platformName === "bsky") {
+        nicePlatformName = "Bluesky";
+    }
+
+    // Set the browser native tooltip text here
+    platform.title = `via ${nicePlatformName}`;
+
     const iconPath = platformIcons[platformName];
 
     if (iconPath) {
         const icon = document.createElement("img");
         icon.src = iconPath;
-        icon.alt = `Posted on ${platformName}`;
+        icon.alt = `Posted on ${nicePlatformName}`;
         platform.appendChild(icon);
     }
 
