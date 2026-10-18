@@ -245,7 +245,7 @@ body {
     align-items: center;
     gap: 8px;
     min-width: 0;
-    padding-right: 24px; /* leaves room for the absolute icon so text won't crash into it */
+    padding-right: 28px; /* Extra space so long headers don't overlap the right icon */
 }
 
 .quoted-post-avatar {
@@ -256,17 +256,17 @@ body {
     border-radius: 50%;
     object-fit: cover;
     background: #eee;
-    overflow: hidden; /* fixes pfp / border-radius bleeding issues */
+    overflow: hidden;
 }
 
 .quoted-post-author {
     display: flex;
     flex-direction: row;
-    align-items: baseline;
+    align-items: center; /* Aligns date vertically with the username */
     flex: 1;
     min-width: 0;
-    gap: 6px;
-    flex-wrap: wrap; /* allows wrapping nicely if the screen is narrow */
+    gap: 12px; /* Increased gap between username and date */
+    flex-wrap: wrap;
 }
 
 .quoted-post-username {
@@ -281,11 +281,12 @@ body {
 .quoted-post-date {
     display: inline-block;
     flex: 0 0 auto;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.4;
     font-weight: 400;
     color: #777;
     white-space: nowrap;
+    margin-left: 5px; /* Subtle additional spacing buffer */
 }
 
 .quoted-post-platform {
