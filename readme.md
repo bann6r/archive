@@ -17,6 +17,4 @@ yes. but trust me, the ui aint generic
 ## i dont wanted to involve me in the post you archived
 file an issue.
 
-i will be asking people for permission to involve them into my posts, including mentions (@) of them
-
-1
+i will be asking people for permission to involve them into my posts, including mentions (@) of them AND their pfps.
