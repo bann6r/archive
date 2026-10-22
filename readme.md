@@ -8,9 +8,6 @@ so my threads account (`@bann6r`, before creating `@bann6r_`) got zucked so i de
 - youtube (coming soon)
 - x fka twitter (coming soon)
 
-## is this vibecoding?
-yes. but trust me, the ui aint generic
-
 ## opting out
 if you dont wanted to see yourself involved in this archive, you can file an issue on github or dm me on social media.\
 otherwise, nothing changed. i only used your pfp, username and the thread content
