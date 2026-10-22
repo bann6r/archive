@@ -11,13 +11,12 @@ so my threads account (`@bann6r`, before creating `@bann6r_`) got zucked so i de
 ## is this vibecoding?
 yes. but trust me, the ui aint generic
 
-## i dont wanted to involve me in the post you archived
-file an issue.
+## opting out
+if you dont wanted to see yourself involved in this archive, you can file an issue on github or dm me on social media.\
+otherwise, nothing changed. i only used your pfp, username and the thread content
 
-i will be asking people for permission to involve them into my posts, including mentions (@) of them AND their pfps.
- 
 ## WHY IS THE UI ON MY PHONE GLITCHING???
-this was meant for desktop. i will make it responsive on mobile later
+this was meant for desktop. i will never make a mobile version of it.
 
 ## how do i run this site locally?
 localhost on python
