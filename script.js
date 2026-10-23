@@ -262,8 +262,19 @@ function createPost(post) {
     }
 
     createActions(content);
-    article.appendChild(content);
 
+    // Optional author's/archiver's note, below the action icons
+    const noteText = getText(post, ":scope > note, :scope > author-note, :scope > author_note");
+
+    if (noteText) {
+        const note = document.createElement("aside");
+        note.className = "archivers-note";
+        note.setAttribute("aria-label", "Author's note");
+        note.textContent = noteText;
+        content.appendChild(note);
+    }
+
+    article.appendChild(content);
     return article;
 }
 

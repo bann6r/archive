@@ -180,19 +180,16 @@ body {
 
 .carousel-slide {
     flex: 0 0 100%;
-    width: 100%;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
+    height: 320px; /* adjust to your preferred preview height */
+    overflow: hidden;
 }
 
 .carousel-slide img {
     display: block;
     width: 100%;
-    height: auto;
-    max-height: 600px;
-    object-fit: contain;
-    background: #f7f7f7;
-    user-select: none;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 .carousel-arrow {
@@ -325,4 +322,21 @@ body {
     .post-content {
         margin-left: 0;
     }
+}
+
+.archivers-note {
+    margin-top: 12px;
+    padding: 10px 12px;
+    border-left: 3px solid var(--border-color, #888);
+    border-radius: 4px;
+    font-size: 0.9em;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    opacity: 0.8;
+}
+
+.archivers-note a {
+    color: inherit;
+    word-break: break-all;
 }
