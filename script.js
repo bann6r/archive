@@ -199,7 +199,35 @@ function createVideo(post, content) {
 
     const source = document.createElement("source");
     source.src = videoPath;
-    source.type = "video/mp4";
+
+    const extension = videoPath
+        .split("?")[0]
+        .split("#")[0]
+        .split(".")
+        .pop()
+        .toLowerCase();
+
+    const mimeTypes = {
+        mp4: "video/mp4",
+        m4v: "video/mp4",
+        mov: "video/quicktime",
+        webm: "video/webm",
+        avi: "video/x-msvideo",
+        mkv: "video/x-matroska",
+        wmv: "video/x-ms-wmv",
+        flv: "video/x-flv",
+        ogv: "video/ogg",
+        ogg: "video/ogg",
+        "3gp": "video/3gpp",
+        "3g2": "video/3gpp2",
+        mpeg: "video/mpeg",
+        mpg: "video/mpeg",
+        ts: "video/mp2t"
+    };
+
+    if (mimeTypes[extension]) {
+        source.type = mimeTypes[extension];
+    }
 
     video.appendChild(source);
     content.appendChild(video);
