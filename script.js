@@ -1,4 +1,3 @@
-
 const platformIcons = {
     threads: "icons/threads.svg",
     bsky: "icons/bsky.svg"
@@ -206,18 +205,20 @@ function createVideo(post, content) {
     content.appendChild(video);
 }
 
-function createActions(content) {
+function createActions(post, content) {
     const actions = document.createElement("div");
     actions.className = "actions";
     actions.setAttribute("aria-label", "Post actions");
 
+    // [label, icon, XML tag holding the count]
     const actionIcons = [
-        ["Like", "icons/love.svg"],
-        ["Comment", "icons/comment.svg"],
-        ["Repost", "icons/repost.svg"]
+        ["Like", "icons/love.svg", "likes"],
+        ["Comment", "icons/comment.svg", "comments"],
+        ["Repost", "icons/repost.svg", "reposts"],
+        ["Views", "icons/views.svg", "views"]
     ];
 
-    actionIcons.forEach(([label, src]) => {
+    actionIcons.forEach(([label, src, tag]) => {
         const action = document.createElement("span");
         action.className = "action";
         action.title = label;
@@ -225,8 +226,19 @@ function createActions(content) {
         const icon = document.createElement("img");
         icon.src = src;
         icon.alt = "";
-
         action.appendChild(icon);
+
+        // Counts are shown exactly as written in posts.xml (e.g. "15.4k").
+        // If a post has no value for this tag, no number is shown.
+        const countText = getText(post, `:scope > ${tag}`);
+
+        if (countText) {
+            const count = document.createElement("span");
+            count.className = "action-count";
+            count.textContent = countText;
+            action.appendChild(count);
+        }
+
         actions.appendChild(action);
     });
 
@@ -261,20 +273,9 @@ function createPost(post) {
         content.appendChild(createQuote(quoteElement));
     }
 
-    createActions(content);
-
-    // Optional author's/archiver's note, below the action icons
-    const noteText = getText(post, ":scope > note, :scope > author-note, :scope > author_note");
-
-    if (noteText) {
-        const note = document.createElement("aside");
-        note.className = "archivers-note";
-        note.setAttribute("aria-label", "Author's note");
-        note.textContent = noteText;
-        content.appendChild(note);
-    }
-
+    createActions(post, content);
     article.appendChild(content);
+
     return article;
 }
 
