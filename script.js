@@ -13,9 +13,9 @@ function createPlatformIcon(platformName, className) {
 
     // Set custom tooltip text based on the platform
     if (platformName === "threads") {
-        platform.title = "this is posted via threads.";
+        platform.title = "via threads";
     } else if (platformName === "bsky") {
-        platform.title = "threads is notorious for restricting content related to suicide/self-harm for users under 18. the only workaround is to use bsky. since i only shared the bsky link in the threads post, the post will appear as a bsky post.";
+        platform.title = "via bluesky (cross-posting)";
     }
 
     const iconPath = platformIcons[platformName];
