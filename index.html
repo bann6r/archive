@@ -1,22 +1,171 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>bann6r's post archives</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="loveyall.css">
+    <title>bann6r's post archive</title>
 
-  <script src="script.js" defer></script>
+    <!-- Google Fonts: Noto Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #f9f8f5;
+            color: #1f1f24;
+            font-family: "Noto Sans", sans-serif;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 205px 24px 39px;
+        }
+
+        main {
+            width: 100%;
+            max-width: 920px;
+            min-height: 480px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 22px;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .platforms {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .platform-button {
+            width: 68px;
+            height: 60px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid #dedbd6;
+            border-radius: 14px;
+
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .platform-button:hover {
+            transform: translateY(-3px);
+            opacity: 0.85;
+        }
+
+        .platform-button img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .threads {
+            background: #000;
+        }
+
+        .bluesky {
+            background: linear-gradient(to bottom, #1185fe, #56b4f7);
+        }
+
+        footer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+        }
+
+        footer a {
+            color: #6e6e75;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        footer a:hover {
+            color: #1f1f24;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 0 20px 32px;
+            }
+
+            main {
+                min-height: 100vh;
+                gap: 22px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            footer {
+                position: absolute;
+                bottom: 32px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <main id="archive">
-    <!-- @bann6r -->
-  </main>
+
+    <main>
+        <h1>bann6r's post archive</h1>
+
+        <nav class="platforms" aria-label="Social media archives">
+
+            <a
+                class="platform-button threads"
+                href="/archive/threads/"
+                aria-label="Threads archive"
+            >
+                <img
+                    src="https://cdn.simpleicons.org/threads/ffffff"
+                    alt=""
+                >
+            </a>
+
+            <a
+                class="platform-button bluesky"
+                href="/archive/bluesky/"
+                aria-label="Bluesky archive"
+            >
+                <img
+                    src="https://cdn.simpleicons.org/bluesky/ffffff"
+                    alt=""
+                >
+            </a>
+
+        </nav>
+    </main>
+
+    <footer>
+        <a href="/archive/about/">about</a>
+        <a href="https://github.com/">github</a>
+    </footer>
+
 </body>
 </html>
