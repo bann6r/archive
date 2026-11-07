@@ -15,5 +15,10 @@ otherwise, nothing changed. i only used your pfp, username and the thread conten
 ## WHY IS THE UI ON MY PHONE GLITCHING???
 this was meant for desktop. i will never make a mobile version of it.
 
+works fine on ipad though.
+
 ## how do i run this site locally?
 localhost on python
+
+> [!WARNING]
+> some posts contain disturbing content. viewer discretion is adviced.
