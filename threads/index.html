@@ -4,19 +4,225 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>bann6r's post archives</title>
+  <title>threads</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="loveyall.css">
 
-  <script src="script.js" defer></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #fff;
+      color: #1f1f24;
+      font-family: "Noto Sans", sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .top {
+      width: 100%;
+      padding: 40px;
+    }
+
+    .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #000;
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    .back-icon {
+      width: 24px;
+      height: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+
+    main {
+      width: 920px;
+      max-width: 100%;
+      height: 480px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      margin: 0 auto;
+    }
+
+    .heading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h1 {
+      color: #1f1f24;
+      font-size: 36px;
+      font-weight: 600;
+      line-height: normal;
+    }
+
+    .subtitle {
+      color: #6e6e75;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: normal;
+    }
+
+    .profiles {
+      display: flex;
+      align-items: flex-start;
+      gap: 30px;
+    }
+
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .avatar {
+      width: 110px;
+      height: 110px;
+      border: 1px solid #dedbd6;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .profile-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      line-height: normal;
+    }
+
+    .username {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .old .username {
+      color: #466197;
+    }
+
+    .current .username {
+      color: #210340;
+    }
+
+    .label {
+      color: #6e6e75;
+      font-size: 13px;
+      font-weight: 400;
+    }
+
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      padding-bottom: 39px;
+      color: #6e6e75;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    @media (max-width: 600px) {
+      .top {
+        padding: 24px;
+      }
+
+      main {
+        height: auto;
+        min-height: 480px;
+        gap: 50px;
+      }
+
+      .profiles {
+        gap: 24px;
+      }
+
+      .avatar {
+        width: 90px;
+        height: 90px;
+      }
+
+      .username {
+        font-size: 17px;
+      }
+
+      .label {
+        font-size: 11px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <main id="archive">
-    <!-- @bann6r -->
+  <header class="top">
+    <a class="back" href="../">
+      <span class="back-icon" aria-hidden="true">←</span>
+      <span>back to homepage</span>
+    </a>
+  </header>
+
+  <main>
+    <section class="heading">
+      <h1>threads</h1>
+      <p class="subtitle">choose one of the profiles to view</p>
+    </section>
+
+    <section class="profiles">
+      <a class="profile old" href="./old/">
+        <img
+          class="avatar"
+          src="https://raw.githubusercontent.com/bann6r/archive/refs/heads/main/pfp/threads_1.jpg"
+          alt=""
+        >
+        <div class="profile-info">
+          <p class="username">@bann6r</p>
+          <p class="label">(old, now-zucked)</p>
+        </div>
+      </a>
+
+      <a class="profile current" href="./new/">
+        <img
+          class="avatar"
+          src="https://raw.githubusercontent.com/bann6r/archive/refs/heads/main/pfp/firefox.png"
+          alt=""
+        >
+        <div class="profile-info">
+          <p class="username">@bann6r_</p>
+          <p class="label">(current)</p>
+        </div>
+      </a>
+    </section>
   </main>
+
+  <footer>
+    <a href="../about/">about</a>
+    <a href="https://github.com/">github</a>
+  </footer>
 </body>
 </html>
