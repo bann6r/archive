@@ -21,7 +21,7 @@ works fine on ipad though.
 localhost on python
 
 > [!WARNING]
-> some posts contain disturbing content. viewer discretion is adviced.
+> some posts contain disturbing content. viewer discretion is advised.
 
 ## todo
 - [x] new threads profile
