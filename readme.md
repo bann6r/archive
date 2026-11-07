@@ -22,3 +22,9 @@ localhost on python
 
 > [!WARNING]
 > some posts contain disturbing content. viewer discretion is adviced.
+
+## todo
+- [x] new threads profile
+- [x] make homepage
+- [ ] old threads profile
+- [ ] spoilers, file attachments
