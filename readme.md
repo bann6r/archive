@@ -28,3 +28,4 @@ localhost on python
 - [x] make homepage
 - [ ] old threads profile
 - [ ] spoilers, file attachments
+- [ ] 1:1 threads profile (redesign v2 potential?) (WIP)
