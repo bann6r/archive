@@ -12,11 +12,6 @@ so my threads account (`@bann6r`, before creating `@bann6r_`) got zucked so i de
 if you dont wanted to see yourself involved in this archive, you can file an issue on github or dm me on social media.\
 otherwise, nothing changed. i only used your pfp, username and the thread content
 
-## WHY IS THE UI ON MY PHONE GLITCHING???
-this was meant for desktop. i will never make a mobile version of it.
-
-works fine on ipad though.
-
 ## how do i run this site locally?
 localhost on python
 
@@ -29,3 +24,14 @@ localhost on python
 - [ ] old threads profile
 - [ ] spoilers, file attachments
 - [ ] 1:1 threads profile (redesign v2 potential?) (WIP)
+
+## compatibility stuff (best unemployed moments)
+this website runs perfectly fine on:
+- windows
+- linux (of course people knew that what the helly)
+- ipad
+- iphone 11
+- iphone 4
+- freebsd
+
+and the website prolly will be tested on older ipod touches
